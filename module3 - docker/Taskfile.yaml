@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - python yamlToHTML.py
+  get_skill_by_lvl:
+    env:
+      LEVEL: "medium"
+    cmds:
+      - python automatization.py get_skills_with_level {{ .LEVEL }}
+  to_json:
+    cmds:
+      - python automatization.py convertToJSON
