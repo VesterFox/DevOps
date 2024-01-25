@@ -12,3 +12,11 @@ tasks:
   to_json:
     cmds:
       - python automatization.py convertToJSON
+  docker-server-foreground:
+    docker-compose -p {{ .PROJECT }} up
+
+  docker-server-background:
+    docker-compose -p {{ .PROJECT }} up -d
+
+  docker-server-stop:
+    docker-compose -p {{ .PROJECT }} down -v --remove-orphans
