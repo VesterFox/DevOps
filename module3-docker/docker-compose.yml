@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.23.2-alpine
+    volumes:
+      - /home/vesterfox/Desktop/Study/ITADevops/module3-docker/output.html:/usr/share/nginx/html/index.html
+    ports:
+      - "8000:80"

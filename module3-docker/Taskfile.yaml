@@ -13,10 +13,22 @@ tasks:
     cmds:
       - python automatization.py convertToJSON
   docker-server-foreground:
-    docker-compose -p {{ .PROJECT }} up
+    env:
+      PATH: "/dockerPractics:$PATH"
+    cmds:
+      - docker-compose up
+    silent: false
 
   docker-server-background:
-    docker-compose -p {{ .PROJECT }} up -d
+    env:
+      PATH: "/dockerPractics:$PATH"
+    cmds:
+      - docker-compose up -d
+    silent: false
 
   docker-server-stop:
-    docker-compose -p {{ .PROJECT }} down -v --remove-orphans
+    env:
+      PATH: "/dockerPractics:$PATH"
+    cmds:
+      - docker-compose down -v --remove-orphans
+    silent: false

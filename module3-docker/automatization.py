@@ -3,15 +3,15 @@ import sys
 import yaml
 import json
 
-path = os.path.join(os.path.dirname(sys.argv[0]))+r"/resume"
-resume_file = path+".yaml"
+path = os.path.join(os.path.dirname(sys.argv[0]))+"/dockerPractics/build"
+resume_file = path+"/resume.yaml"
 
 def parseYAML():
     with open(resume_file, "r", encoding="utf-8") as file:
         return yaml.safe_load(file)
     
 def convertToJSON():
-    with open(path+"/build/"+".json", "w", encoding="utf-8") as jsonOut:
+    with open(path+"/resume.json", "w", encoding="utf-8") as jsonOut:
         json.dump(parseYAML(), jsonOut, indent=4, ensure_ascii=False)
 
 def get_skills_with_level(level):
