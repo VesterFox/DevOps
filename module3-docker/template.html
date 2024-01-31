@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ basics.name }} - {{ basics.label }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ basics.name }}</h1>
+        <p>{{ basics.label }}</p>
+        <p>Email: {{ basics.email }}</p>
+        <p>Phone: {{ basics.phone }}</p>
+        <p>Location: {{ basics.location.city }}, {{ basics.location.countryCode }}</p>
+        <p>Profiles:
+            {% for profile in basics.profiles %}
+                <a href="{{ profile.url }}">{{ profile.network | default('') }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </header>
+
+    <section>
+        <h2>Summary</h2>
+        <p>{{ basics.summary | replace('\n', '<br>') }}</p>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <ul>
+            {% for edu in education %}
+                <li>
+                    <strong>{{ edu.institution }}</strong>
+                    <p>{{ edu.area }} - {{ edu.status }}</p>
+                    <p>{{ edu.startDate }} - {{ edu.endDate }}</p>
+                    <p>{{ edu.score }}</p>
+                    <p>Courses:
+                        <ul>
+                            {% for course in edu.courses %}
+                                <li>{{ course }}</li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            {% for skill in skills %}
+                <li>
+                    <strong>{{ skill.name }}</strong>
+                    <p>Level: {{ skill.level }}</p>
+                    <p>Keywords: {{ skill.keywords | join(', ') }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <strong>{{ project.name }}</strong>
+                    <p>{{ project.description | replace('\n', '<br>') }}</p>
+                    <p>Start Date: {{ project.startDate }}</p>
+                    <p>End Date: {{ project.endDate }}</p>
+                    <p>URL: {{ project.url }}</p>
+                    <p>Highlights:
+                        <ul>
+                            {% for highlight in project.highlights %}
+                                <li>{{ highlight }}</li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+#Опыт работы
+work:
+  - name: Название компании
+    position: Должность
+    location: Город, Страна
+    url: Сайт
+    summary: 
+      Краткое описание компании
+    startDate: Дата начала
+    endDate: Дата конца
+    highlights: 
+      - Что сделал
+         
+volunteer:
+  - organization: Название
+    position: Должность
+    url: Сайт
+    startDate: Дата начала
+    endDate: Дата конца
+    highlights:
+      - Что сделал
+
+#Награды
+awards:
+  - title: Название
+    date: Дата вручения
+    awarder: Вручитель
+    summary: Описание
+
+#Статьи
+publications:
+  - name: Название
+    publisher: Издатель
+    releaseDate: Дата выпуска
+    url: Ссылка
+    summary: 
+      Описание

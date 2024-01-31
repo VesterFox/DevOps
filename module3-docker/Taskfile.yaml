@@ -1,0 +1,34 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - python yamlToHTML.py
+  get_skill_by_lvl:
+    env:
+      LEVEL: "medium"
+    cmds:
+      - python automatization.py get_skills_with_level {{ .LEVEL }}
+  to_json:
+    cmds:
+      - python automatization.py convertToJSON
+  docker-server-foreground:
+    env:
+      PATH: "/dockerPractics:$PATH"
+    cmds:
+      - docker-compose up
+    silent: false
+
+  docker-server-background:
+    env:
+      PATH: "/dockerPractics:$PATH"
+    cmds:
+      - docker-compose up -d
+    silent: false
+
+  docker-server-stop:
+    env:
+      PATH: "/dockerPractics:$PATH"
+    cmds:
+      - docker-compose down -v --remove-orphans
+    silent: false
