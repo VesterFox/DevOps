@@ -16,3 +16,8 @@ RUN mkdir /build \
 FROM builder as build
 WORKDIR /dockerPractics
 RUN task build
+
+FROM busybox as release
+WORKDIR /opt/app
+COPY --from=build /dockerPractics/build/output.html output.html
+VOLUME /opt/app
