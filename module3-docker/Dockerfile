@@ -14,7 +14,7 @@ RUN mkdir /build \
     | tar xz -C /usr/bin
     
 FROM builder as build
-WORKDIR /dockerPractics
+#WORKDIR /dockerPractics
 RUN task build
 
 FROM busybox as release
