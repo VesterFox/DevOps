@@ -15,6 +15,7 @@ RUN mkdir /build \
     
 FROM builder as build
 #WORKDIR /dockerPractics
+RUN ls
 RUN task build
 
 FROM busybox as release
