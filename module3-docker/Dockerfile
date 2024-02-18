@@ -5,7 +5,7 @@ ARG TASK_VERSION=v3.17.0
 ARG TASK_BINARY=task_linux_amd64.tar.gz
 
 WORKDIR /dockerPractics
-COPY . .
+COPY . ./dockerPractics
 
 RUN mkdir /build \
     && pip install pyyaml \
