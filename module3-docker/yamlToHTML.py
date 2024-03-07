@@ -21,8 +21,9 @@ def save_html(html_content, output_path):
 if __name__ == "__main__":
     yaml_file_path = "resume.yaml"
     html_template_path = "template.html"
-    output_html_folder = "/dockerPractics/build"
-    output_html_path = output_html_folder+"/output.html"
+    output_html_folder = "/build"
+    #Удали output_html_folder из пути если что-то сломалось.
+    output_html_path = output_html_folder + "/output.html"
 
     if not os.path.exists(output_html_folder):
         try:
@@ -38,8 +39,4 @@ if __name__ == "__main__":
     except:
         print(f"Ошибка при загрузки yaml (этап конвертации в html).")
     html_content = render_html(html_template_path, resume_data)
-    try:
-        save_html(html_content, output_html_path)
-        print(f"Успешная конвертация в html.")
-    except:
-        print(f"Ошибка во время конвертации в html.")
+    save_html(html_content, output_html_path)
