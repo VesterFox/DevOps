@@ -1,17 +1,12 @@
 name: Build
-
 on:
   push:
-    branches: [ "main" ]
-  pull-request:
-    branches: [ "main" ]
-  
+    branches:
+    - '*'
+  workflow_dispatch:
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v3.0.0
