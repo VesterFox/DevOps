@@ -15,4 +15,4 @@ jobs:
       with:
         file: ./module3-docker/Dockerfile
         push: false
-        tags: user/app:${{ env.TAG }}
+        tags: github_actions_practics
